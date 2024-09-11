@@ -1,0 +1,23 @@
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+
+// Mock function to get the current user's role
+const getUserRole = () => {
+  return localStorage.getItem('userRole'); // assuming you store the role in localStorage after login
+};
+const getUserToken = () => {
+  return localStorage.getItem('userToken'); // Get the user token
+};
+
+const PrivateRoute = ({ children, allowedRoles }) => {
+  const userRole = getUserRole();
+  const userToken = getUserToken();
+
+  if (!userRole || !userToken || !allowedRoles.includes(userRole.toUpperCase())) {
+    return <Navigate to="/login" replace />; 
+  }
+
+  return children;
+};
+
+export default PrivateRoute;
