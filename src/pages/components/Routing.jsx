@@ -17,6 +17,7 @@ import PostUser from '../admin/employees/PostUser';
 import UpdateUser from '../admin/employees/UpdateUser';
 import AddUser from '../admin/users/AddUser';
 import PatchUser from '../admin/users/PatchUser';
+import Footer from './Footer';
 
 const Routing = () => {
   const location = useLocation();
@@ -117,6 +118,7 @@ const Routing = () => {
         <Route path='*' element={<NoMatch />} />
         <Route path='/user/*' element={<NoMatch />} />
       </Routes>
+      <Footer />
     </>
   );
 };
